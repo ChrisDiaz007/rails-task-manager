@@ -1,7 +1,9 @@
-<%= form_for (task) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :details %>
-  <%= f.text_field :details %>
-  <%= f.submit %>
-<% end %>
+<div class="border-bottom">
+  <%= form_for (task) do |f| %>
+    <p><%= f.label :title %></p>
+    <p><%= f.text_field :title, size: 51 %></p>
+    <p><%= f.label :details %></p>
+    <p><%= f.text_area :details, rows: 2, cols: 50 %></p>
+    <p><%= f.submit "Create Task" , class: "btn btn-primary" %></p>
+  <% end %>
+</div>

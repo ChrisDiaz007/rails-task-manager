@@ -1,12 +1,17 @@
-<h1><%= @task.title %></h1>
-<p><%= @task.details %></p>
-<% if @task.completed == false %>
-  <p>This task is not completed yet</p>
-<% else %>
-  <p>This task is completed</p>
-<% end %>
-<p><%= link_to "Back to list", tasks_path, style: "text-decoration: none;" %></p>
-<%= link_to 'Delete',
+<div class="m-4">
+  <h1><%= @task.title %></h1>
+  <p class="border rounded border-secondary bg-light p-3"><%= @task.details %></p>
+  <% if @task.completed %>
+    <p class="border-bottom pb-3"><i class="fa-solid fa-square-check" style="color: #1eb381;"></i> This task is completed</p>
+  <% else %>
+    <p class="border-bottom pb-3"><i class="fa-regular fa-square"></i> This task is not completed yet</p>
+  <% end %>
+  <p class="mt-4"><%= link_to "Update Task", edit_task_path, class:"border border-primary rounded bg-primary text-white p-2", style: "text-decoration: none;"%></p>
+  <p><i class="fa-solid fa-rotate-left" style="color: #0400ff;"></i> <%= link_to "Back to list", tasks_path, style: "text-decoration: none;" %></p>
+  <p>
+    <%= link_to 'Delete',
   task_path(@task),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
+  %>
+  </p>
+</div>

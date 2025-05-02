@@ -1,5 +1,15 @@
-<h1>My tasks</h1>
-<% @tasks.each do |task| %>
-  <p><%= link_to task.title, task_path(task), style: "text-decoration: none;" %></p>
-<% end %>
-<p><%= link_to "add a new task", new_task_path, style: "text-decoration: none;" %></p>
+<div class="m-4">
+  <h1>My tasks</h1>
+  <% @tasks.each do |task| %>
+    <p>
+      <% if task.completed %>
+        <i class="fa-solid fa-square-check" style="color: #1eb381;"></i>
+      <% else %>
+        <i class="fa-regular fa-square"></i>
+      <% end %>
+      <%= link_to task.title, task_path(task), style: "text-decoration: none;" %>
+    </p>
+  <% end %>
+  <p class="border-top pt-3"><i class="fa-solid fa-plus" style="color: #0400ff;"></i>
+    <%= link_to "Add a new task", new_task_path, style: "text-decoration: none;" %></p>
+</div>
